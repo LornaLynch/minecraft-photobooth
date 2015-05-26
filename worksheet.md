@@ -4,9 +4,9 @@ Create a working photobooth in Minecraft: when the player enters the photobooth,
 
 Note that, before starting this activity, you must ensure that your camera module is attached to the Raspberry Pi and enabled in the settings.  This is covered in (this tutorial)[https://github.com/raspberrypilearning/guides/tree/master/camera].  Once you have connected the camera, boot up the Raspberry Pi
 
-## Importing the Minecraft and PiCamera modules
+## Importing the Minecraft and picamera modules
 
-The first thing you need to do is to import the Minecraft API (Application Programming Interface). This enables you to connect to Minecraft and use Python to code. This will import the PiCamera module to control the camera and the time module to add a small delay between taking the photo and then taking the next photo.
+The first thing you need to do is to import the Minecraft API (Application Programming Interface). This enables you to connect to Minecraft and use Python to code. This will import the picamera module to control the camera and the time module to add a small delay between taking the photo and then taking the next photo.
 
 1. Open Minecraft from the application menu; enter an existing world or create a new one.
 
@@ -28,7 +28,7 @@ The first thing you need to do is to import the Minecraft API (Application Progr
 
 	``` python
 	from mcpi import minecraft
-	from picamera import PiCamera
+	from picamera import picamera
 	from time import sleep
 
 	mc = minecraft.Minecraft.create()
@@ -46,7 +46,7 @@ Next we need to create a function which will control the camera. A function is m
 
     ``` python
     def take_the_pic():
-    	with PiCamera() as camera:
+    	with picamera() as camera:
     		camera.start_preview()
     		sleep(2)
     		camera.capture('/home/pi/selfie.jpg')
@@ -127,7 +127,7 @@ You will note that the `if` statement checks if `x` value is greater than or equ
 
 ## Putting it all together
 
-Now you have a working photobooth, we need to add the camera to take a picture. We will add a quick reminder to smile and then call the PiCamera function `take_the_pic`.
+Now you have a working photobooth, we need to add the camera to take a picture. We will add a quick reminder to smile and then call the picamera function `take_the_pic`.
 
 1. Add the instructions to send messages to Minecraft and the call to `take_the_pic` inside your `if` statement:
 
