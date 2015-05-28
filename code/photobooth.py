@@ -1,9 +1,9 @@
 from mcpi import minecraft
-from picamera import picamera
+from picamera import PiCamera
 from time import sleep
 
 def take_the_pic():
-    with picamera() as camera:
+    with PiCamera() as camera:
         camera.start_preview()
         sleep(2)
         camera.capture('/home/pi/selfie.jpg')
