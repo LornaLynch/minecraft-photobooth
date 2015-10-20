@@ -95,7 +95,7 @@ To find your position, you use the code `x, y, x = mc.player.getPos()`.  This sa
 
     ``` python
 	while True:
-		x, y, z, = mc.player.getPos()
+		x, y, z = mc.player.getPos()
 		mc.postToChat(x, y, z)
     ```
 
